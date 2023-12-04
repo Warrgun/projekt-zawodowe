@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Form</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<script type="text/javascript" src="script.js"></script>
+	<div id="container">
+		<div class="header-container">
+			<h1>Studia</h1>
+		</div>
+		<div class="form">
+			<form action="form.html" method="post" id="survey-form">
+				<fieldset>
+					<label for="name" id="name-label">Imię: <input type="text" id="name" name="first-name" required placeholder="Brandon"></label>
+					<label for="email" id="email-label">Email: <input type="email" id="email" name="email" required placeholder="brandon@gmail.com"></label>
+					<label for="number" id="number-label">Wiek: <input type="number" id="number" name="age" min="13" max="120" placeholder="42"></label>
+					<label for="dropdown">Czy chcesz iść na studia?<select id="dropdown">
+						<option value="0">select</option>
+						<option value="1">Tak</option>
+						<option value="2">Nie</option>
+						<option value="3">Jeszcze nie wiem</option>
+					</select>
+					</label>
+				</fieldset>
+				<fieldset>
+					<p class="info">Zaoczne/Stałe?</p>
+					<label for="zaoczne"><input type="radio" name="style" class="inline" id="zaoczne" value="zaoczne"> Zaoczne</label>
+					<label for="stale"><input type="radio" name="style" class="inline" id="stale" value="stale"> Stałe</label>
+					<label for="undifined"><input type="radio" name="style" class="inline" id="undifined" value="undifined"> Nie wiem jeszcze</label>
+				</fieldset>
+				<fieldset>
+					<p class="info">Wybierz spośród podanych</p>
+					<label for="zd1"><input type="checkbox" id="zd1" class="inline" value="1">1</label>
+					<label for="zd2"><input type="checkbox" id="zd2" class="inline" value="2">2</label>
+					<label for="zd3"><input type="checkbox" id="zd3" class="inline" value="3">3</label>
+					<label for="zd4"><input type="checkbox" id="zd4" class="inline" value="4">4</label>
+				</fieldset>
+				<fieldset>
+					<p class="info">Na jakie studia chcesz pójść i opisz dlaczego</p>
+					<textarea id="split" placeholder="idc" rows="10" cols="20"></textarea>
+					<button type="submit" id="submit" onclick="checkForm()">Submit</button>
+				</fieldset>
+			</form>
+			<span>Background picture: <a href="https://pixabay.com/images/search/gym/" target="_blank">pixabay.com</a></span>
+		</div>	
+   </div>
+</body>
+
+</html>
