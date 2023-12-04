@@ -7,7 +7,7 @@
    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<script type="text/javascript" src="script.js"></script>
+	
 	<div id="container">
 		<div class="header-container">
 			<h1>Studia</h1>
@@ -15,9 +15,18 @@
 		<div class="form">
 			<form action="form.html" method="post" id="survey-form">
 				<fieldset>
-					<label for="name" id="name-label">Imię: <input type="text" id="name" name="first-name" required placeholder="Brandon"></label>
-					<label for="email" id="email-label">Email: <input type="email" id="email" name="email" required placeholder="brandon@gmail.com"></label>
+					<label for="name" id="name-label">Imię: <input type="text" id="name" name="first-name" placeholder="Brandon"></label>
+					<div class="error-container">
+						<p class="error"></p>
+					</div>
+					<label for="email" id="email-label">Email: <input type="email" id="email" name="email" placeholder="brandon@gmail.com"></label>
+					<div class="error-container">
+						<p class="error"></p>
+					</div>
 					<label for="number" id="number-label">Wiek: <input type="number" id="number" name="age" min="13" max="120" placeholder="42"></label>
+					<div class="error-container">
+						<p class="error"></p>
+					</div>
 					<label for="dropdown">Czy chcesz iść na studia?<select id="dropdown">
 						<option value="0">select</option>
 						<option value="1">Tak</option>
@@ -48,6 +57,7 @@
 			<span>Background picture: <a href="https://pixabay.com/images/search/gym/" target="_blank">pixabay.com</a></span>
 		</div>	
    </div>
+   <script type="text/javascript" src="script.js"></script>
 </body>
 
 </html>

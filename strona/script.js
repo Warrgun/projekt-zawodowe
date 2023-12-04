@@ -1,20 +1,11 @@
-let imie = document.getElementById('name');
-let email = document.getElementById('email');
-let wiek = document.getElementById('number');
-
 function checkForm(){
-	let arr = [];
-	
-	arr.push = imie;
-	arr.push = email;
-	
-	reg = /\W/ig;
-	
-	
-	return arr.tab(element => {
-		if(!reg.test(element)){
-			alert("Wypełnij poprawnie dane")
-		}
-	})
-	
+	let imie = document.querySelector('#name').value;
+	let email = document.querySelector('#email').value;
+	let wiek = document.querySelector('#number').value;
+	let error = document.querySelectorAll('.error');
+
+	let arr = [imie, email, wiek];
+	return arr.map((element, index) => element === ""? error[index].innerHTML = `pusto`: "");
 }
+
+console.log(checkForm());
