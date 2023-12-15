@@ -11,8 +11,11 @@ function checkForm(){
 	let empty = (element) => !element || checkWhiteSpace(element);
 	let regex = /\d/g;
 	let emailValid = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+	let currentYear = new Date().getFullYear();
+	let userYear = new Date(wiek.value).getFullYear();
+	let userAge = currentYear - userYear;
 	
-	//let ageCalc
+	
 
 	let check = arr.map((element, index) => {
 		if(empty(element.value)){
@@ -27,6 +30,11 @@ function checkForm(){
 		}
 		else if(index === 1 && !emailValid.test(element.value)){
 			error[index].innerHTML = "Czy to jest e-mail ?!";
+			element.style = "border-color: red";
+			element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+		}
+		else if(index === 2 && userAge <=10){
+			error[index].innerHTML = "Pójdź oglądać Disney Channel!";
 			element.style = "border-color: red";
 			element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 		}
