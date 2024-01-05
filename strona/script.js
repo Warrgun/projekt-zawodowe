@@ -11,9 +11,15 @@ function checkForm(){
 	let empty = (element) => !element || checkWhiteSpace(element);
 	let regex = /\d/g;
 	let emailValid = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-	let currentYear = new Date().getFullYear();
-	let userYear = new Date(wiek.value).getFullYear();
-	let userAge = currentYear - userYear;
+	let ageCalc= (cY,cM,cD,uY,uM,uD) => {
+		let year = cY - uY;
+		let month = (cM+1) - (uM+1);
+		let day = cD - uD;
+
+		return month < 0 ? year-1: month > 0 ? year: day < 0? year -1: year;
+	}
+	let date = i => empty(i)? new Date(): new Date(i);
+	let userAge = ageCalc(date().getFullYear(), date().getMonth(), date().getDate(), date(wiek.value).getFullYear(), date(wiek.value).getMonth(), date(wiek.value).getDate());
 	
 	
 
@@ -46,7 +52,6 @@ function checkForm(){
 	}); 
 
 	if(validate.every(current => current === true)){
-		
 		return form.submit();
 	}
 	else{
