@@ -33,10 +33,17 @@ select, input, textarea{
     margin: 10px 0;
     width:100%;
     min-height: 2.5em;
-    border-radius: 3px;
-    border: 2px solid #555;
     font-family: Verdana !important;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(80, 80, 80);
     outline: none;
+}
+select,input{
+    border: none;
+    border-bottom: 2px solid #868686;
+}
+textarea{
+    border: 2px solid #868686;
 }
 .form{
     display: flex;
@@ -90,8 +97,14 @@ textarea{
 	color: white;
     font-size: 1.3rem;
 }
-input:focus, textarea:focus, select:focus{
-    border: 2px solid green;
+input:focus, select:focus, textarea:focus{
+    background-color: rgba(0,0,0,0);
+}
+input:focus, select:focus{
+    border-bottom: 2px solid whitesmoke;
+}
+textarea:focus{
+    border: 2px solid whitesmoke;
 }
 span{
     font-family: Tahoma !important;
