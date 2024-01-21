@@ -1,138 +1,126 @@
-body {
-	color: #3a3335;
-	box-sizing: border-box;
-	font-family: 'Rubik', sans-serif;
-	margin: 0;
-	background: url(https://cdn.pixabay.com/photo/2023/11/13/17/49/people-8386051_1280.jpg);
-	background-size: cover;
+html{
+    height: 100vh;
 }
-
-h1 {
-	text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 20px;
-    top:0px;
-    margin-top:-10px;
-    background-color: rgba(255, 255, 255);
-    padding: 10px 0;
+body{
+    height: 100%;
     width: 100%;
-    font-size: 1.6rem;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
 }
-
-#container {
-	width:100%;
-	display: flex;
-	flex-direction:column;
-	justify-content: space-evenly;
-	align-items: center;
-	top:0;
+*{
+    box-sizing: border-box;
 }
-
-select, input, textarea{
+.bg-container{
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    background: url(https://cdn.pixabay.com/photo/2018/04/04/22/14/abstract-3291293_1280.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(4px);
+}
+#container{
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    align-items: center;
+}
+h1{
+    margin: 0;
+}
+.form{
+    margin: auto;
+    max-width:400px;
+    overflow: hidden;
+}
+.section-container{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    transition: transform 300ms ease-in-out;
+}
+fieldset{
+    border: none;
+    border-radius: 10px;
+    min-width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+input, select, textarea{
+    outline: none;
     margin: 10px 0;
     width:100%;
     min-height: 2.5em;
     font-family: Verdana !important;
-    background-color: rgba(0, 0, 0, 0);
-    color: rgb(80, 80, 80);
-    outline: none;
 }
-select,input{
-    border: none;
-    border-bottom: 2px solid #868686;
+select, textarea{
+    border: 3px solid rgb(104, 104, 104);
+}
+select:focus, textarea:focus{
+    border: 3px solid rgb(75, 75, 75);;
 }
 textarea{
-    border: 2px solid #868686;
+    resize:none;
 }
-.form{
-    display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	background-color:rgba(22, 22, 22, 0.7);
-    padding:2em 2em;
-    border-radius: 5px;
-    min-width:400px;
-    max-width:600px;
-    margin: 0 50px;
+input{
+    border:none;
+    border-bottom: 3px solid rgb(104, 104, 104);
+    background-color: rgba(0, 0, 0, 0);
 }
-
-#btn-submit{
-    display:block;
-    margin: 2em 0 0 0;
-    border: none;
-    width: 100%;
-    padding: 10px 0;
-    text-decoration: none;
-    text-align: center;
-    font-size: 16px;
-    color: white;
-    background-color: rgb(64, 200, 96);
-    border-radius: 5px;
-
-}
-#btn-submit:hover{
-    background-color: rgb(64, 255, 96);
+input:focus{
+    border-bottom: 3px solid rgb(75, 75, 75);
 }
 label{
     display: block;
     margin: 0 0 1em 0;
-	color: white;
-}
-fieldset{
-    border:none;
+	color: rgb(116, 116, 116);
 }
 .inline{
     width: unset;
     vertical-align: middle;
     margin: 0 0.5em 0 0;
 }
-textarea{
-    resize: vertical;
-}
 .info{
     text-align:left ;
-    margin: 0 0 0.5em 0;
-	color: white;
+    margin: 0 0 2em 0;
+	color: rgb(119, 119, 119);
+    text-shadow: 1px 1px 2px rgba(74, 74, 74, 1);
     font-size: 1.3rem;
+    text-align: center;
 }
-input:focus, select:focus, textarea:focus{
-    background-color: rgba(0,0,0,0);
-}
-input:focus, select:focus{
-    border-bottom: 2px solid whitesmoke;
-}
-textarea:focus{
-    border: 2px solid whitesmoke;
-}
-span{
-    font-family: Tahoma !important;
-    color:rgba(255, 255, 255,0.6);
-    font-size: 12px;
-}
-span a{
+button{
+    width: 8em;
+    background-color: rgb(104, 104, 104);
+    display:block;
+    margin: 0 15em;
+    border: none;
+    padding: 5px 0;
     text-decoration: none;
+    text-align: center;
+    font-size: 16px;
     color: white;
+    border-radius: 0 10px 10px 0;
 }
-
-.header-container{
-	width: 100%;
-	height:150px;
-	display: grid;
-	align-items: center;
+button:hover{
+    background-color: rgb(75, 75, 75);
 }
-
+.fieldset-space{
+    display: flex;
+    flex-direction: column;
+}
 .error{
-    color: rgb(255, 0, 0) !important;
-    font-family: Verdana !important;
+    background-color: rgba(255, 0, 0, 0.3);
+    color: rgb(170, 0, 0);
     margin: 0;
-    padding: 0;
+}
+#number-label{
+    display: inline-block;
 }
 
-.error-container{
-    background-color: rgb(139, 60, 60);
-    margin: 0 0 1em 0;
-    display: grid;
-    align-items: center;
-}
+

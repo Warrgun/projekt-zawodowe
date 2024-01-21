@@ -1,3 +1,13 @@
+const button = document.querySelectorAll(".next-btn");
+const sections = document.querySelector(".section-container")
+
+let sectionIndex = 0;
+
+const nextSection = () =>{
+	sections.style.transform = `translate(-${sectionIndex * 101}%)`
+}
+
+
 function checkForm(){
 	const form = document.querySelector('#survey-form');
 	const imie = document.querySelector('#name');
@@ -52,10 +62,19 @@ function checkForm(){
 	}); 
 
 	if(validate.every(current => current === true)){
-		return form.submit();
+		return button.forEach((press) => press.addEventListener("click", updateSection));
 	}
 	else{
 		return check;
 	}
 }
+
+const updateSection = () =>{
+	sectionIndex = sectionIndex === 3? 0: sectionIndex = sectionIndex +1;
+	sections.style.transform = `translate(-${sectionIndex * 101}%)`;
+	console.log(sectionIndex)
+}
+
+
+
 
