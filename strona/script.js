@@ -71,7 +71,7 @@ function checkForm(){
 
 const updateSection = () =>{
 	sectionIndex = sectionIndex === 3? 0: sectionIndex = sectionIndex +1;
-	sections.style.transform = `translate(-${sectionIndex * 101}%)`;
+	nextSection();
 	console.log(sectionIndex)
 }
 
