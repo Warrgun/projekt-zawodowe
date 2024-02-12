@@ -1,7 +1,12 @@
 const button = document.querySelectorAll(".next-btn");
-const sections = document.querySelector(".section-container")
+const sections = document.querySelector(".section-container");
+const selectStudia = document.querySelector("#dropdown");
+const overflow = document.querySelector(".no-overflow");
+const error = document.querySelectorAll('.error');
 
+let menuIndex = 0
 let sectionIndex = 0;
+let counter = 0
 
 const nextSection = () =>{
 	sections.style.transform = `translate(-${sectionIndex * 101}%)`
@@ -13,7 +18,6 @@ function checkForm(){
 	const imie = document.querySelector('#name');
 	const email = document.querySelector('#email');
 	const wiek = document.querySelector('#number');
-	const error = document.querySelectorAll('.error');
 	
 	let arr = [imie, email, wiek];
 	let validate = [false, false, false];
@@ -32,7 +36,6 @@ function checkForm(){
 	let userAge = ageCalc(date(wiek.value).getFullYear(), date(wiek.value).getMonth(), date(wiek.value).getDate());
 	
 	
-
 	let check = arr.map((element, index) => {
 		if(empty(element.value)){
 			error[index].innerHTML = "Troszke pusto tutaj";
@@ -50,7 +53,7 @@ function checkForm(){
 			element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 		}
 		else if(index === 2 && userAge <=10){
-			error[index].innerHTML = "Pójdź oglądać Disney Channel!";
+			error[index].innerHTML = "Za mały wiek!";
 			element.style = "border-color: red";
 			element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 		}
@@ -62,6 +65,7 @@ function checkForm(){
 	}); 
 
 	if(validate.every(current => current === true)){
+		console.log(sectionIndex)
 		return button.forEach((press) => press.addEventListener("click", updateSection));
 	}
 	else{
@@ -69,10 +73,41 @@ function checkForm(){
 	}
 }
 
+
+const dropDownMenu = () => {
+	menuIndex = selectStudia.value;
+	if(menuIndex == 2 || menuIndex == 0){
+		overflow.style = "display: none";
+		error[3].innerHTML = "";
+	}
+	else{
+		overflow.style = "display: block";
+		error[3].innerHTML = "";
+	}
+}
+
+
+const menuCheck = () =>{
+	if(menuIndex == 0){
+		error[3].innerHTML = "Wybierz opcje";
+		counter = 1;
+	}
+	else if(menuIndex == 2){
+		return location.reload();
+	}
+	else{
+		error[3].innerHTML = "";
+		counter +=1;
+	}
+}
+
+
 const updateSection = () =>{
-	sectionIndex = sectionIndex === 3? 0: sectionIndex = sectionIndex +1;
-	nextSection();
-	console.log(sectionIndex)
+	counter +=1
+	if(counter != 2){
+		sectionIndex = sectionIndex === 3? 0: sectionIndex = sectionIndex +1;
+		nextSection();
+	}
 }
 
 

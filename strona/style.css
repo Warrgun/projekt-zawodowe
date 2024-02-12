@@ -124,5 +124,7 @@ button:hover{
 #number-label{
     margin-top: 10px;
 }
-
+.no-overflow{
+    display: none;
+}
 

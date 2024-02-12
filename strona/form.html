@@ -33,33 +33,40 @@
 					<fieldset>
 						<div class="fieldset-space">
 							<p class="info">Czy chcesz iść na studia?</p>
-							<select id="dropdown">
-							<option value="0">select</option>
-							<option value="1">Tak</option>
-							<option value="2">Nie</option>
-							<option value="3">Jeszcze nie wiem</option>
+							<select id="dropdown" onchange="dropDownMenu()">
+								<option value="0">select</option>
+								<option value="1">Tak</option>
+								<option value="2">Nie</option>
+								<option value="3">Jeszcze nie wiem</option>
 							</select>
-						<p class="info">Zaoczne/Stałe?</p>
-						<label for="zaoczne"><input type="radio" name="style" class="inline" id="zaoczne" value="zaoczne"> Zaoczne</label>
-						<label for="stale"><input type="radio" name="style" class="inline" id="stale" value="stale"> Stałe</label>
-						<label for="undifined"><input type="radio" name="style" class="inline" id="undifined" value="undifined"> Nie wiem jeszcze</label>
+							<div class="error-container">
+								<p class="error"></p>
+							</div>
+							<div class="no-overflow">
+								<p class="info">Zaoczne/Stałe?</p>
+								<label for="zaoczne"><input type="radio" name="style" class="inline" id="zaoczne" value="zaoczne"> Zaoczne</label>
+								<label for="stale"><input type="radio" name="style" class="inline" id="stale" value="stale"> Stałe</label>
+								<label for="undifined"><input type="radio" name="style" class="inline" id="undifined" value="undifined"> Nie wiem jeszcze</label>
+							</div>
+						</div>
+						<button type="button" class="next-btn" onclick="menuCheck()">Next</button>
+					</fieldset>
+					<fieldset>
+						<div class="fieldset-space">
+							<p class="info">Popularne kierunki studiów</p>
+							<label for="zd1"><input type="checkbox" id="zd1" class="inline" value="1">Psychologia</label>
+							<label for="zd2"><input type="checkbox" id="zd2" class="inline" value="2">Finanse i rachunkowość</label>
+							<label for="zd3"><input type="checkbox" id="zd3" class="inline" value="3">Informatyka</label>
+							<label for="zd3"><input type="checkbox" id="zd4" class="inline" value="4">Elektronika</label>
+							<label for="zd3"><input type="checkbox" id="zd5" class="inline" value="5">Medycyna</label>
+							<label for="zd4"><input type="checkbox" id="zd6" class="inline" value="6">Inne</label>
 						</div>
 						<button type="button" class="next-btn">Next</button>
 					</fieldset>
 					<fieldset>
 						<div class="fieldset-space">
-							<p class="info">Wybierz spośród podanych</p>
-							<label for="zd1"><input type="checkbox" id="zd1" class="inline" value="1">1</label>
-							<label for="zd2"><input type="checkbox" id="zd2" class="inline" value="2">2</label>
-							<label for="zd3"><input type="checkbox" id="zd3" class="inline" value="3">3</label>
-							<label for="zd4"><input type="checkbox" id="zd4" class="inline" value="4">4</label>
-						</div>
-						<button type="button" class="next-btn">Next</button>
-					</fieldset>
-					<fieldset>
-						<div class="fieldset-space">
-							<p class="info">Na jakie studia chcesz pójść i opisz dlaczego</p>
-							<textarea id="split" placeholder="idc" rows="10" cols="20"></textarea>
+							<p class="info">Gdzie chcesz pójść na studia i opisz dlaczego</p>
+							<textarea id="split" placeholder="..." rows="10" cols="20"></textarea>
 						</div>
 						<button type="submit" id="btn-submit">Submit</button>
 					</fieldset>
